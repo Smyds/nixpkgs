@@ -1,7 +1,7 @@
 {
   stdenv,
   lib,
-  fetchurl,
+  fetchgit,
   pkg-config,
   gtk3,
   gnome,
@@ -24,11 +24,12 @@
 
 stdenv.mkDerivation rec {
   pname = "quadrapassel";
-  version = "40.2";
+  version = "40.2-d0790971";
 
-  src = fetchurl {
-    url = "mirror://gnome/sources/${pname}/${lib.versions.major version}/${pname}-${version}.tar.xz";
-    sha256 = "C9giQUIHxzEj7WpJ9yPaWsjdTfXTXtwJn/6i4TmcwAo=";
+  src = fetchgit {
+    url = "https://gitlab.gnome.org/GNOME/quadrapassel";
+    rev = "d0790971554b611f3c39cada9aa8eaa970b5e2e2";
+    sha256 = "h0X7ydhiTB8QpBmbJTKxfT5miIJ5/6v00ykPZJcDXBk=";
   };
 
   nativeBuildInputs = [
